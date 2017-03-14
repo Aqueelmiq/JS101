@@ -29,7 +29,14 @@ function addTodo(todo) {
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.className = "check";
-    checkbox.addEventListener('')
+    checkbox.addEventListener('change', function (event) {
+        const text = event.target.nextSibling;
+        if (event.target.checked) {
+            text.style.textDecoration = 'line-through';
+        } else {
+            text.style.textDecoration = 'none';
+        }
+    });
     const todotext = document.createElement('p');
     todotext.textContent = todo;
     todotext.className = "todo-text";
@@ -45,7 +52,7 @@ function addTodo(todo) {
 }
 
 function check() {
- 
+
 }
 
 hello();
