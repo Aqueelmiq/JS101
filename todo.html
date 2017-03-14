@@ -11,37 +11,26 @@
         }
         .todo {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-around;
             align-items: center;
         }
+        .delete {
+            margin-left: 10px;
+        }
+
     </style>
     <div id="app">
         <div id="header">
             <h1> TODO App JS 101</h1>
         </div>
-        <div id="input">
-            <input type="text" placeholder="Enter Todo">
-            <button type="button"> Add </button>
+        <div id="input-box">
+            <input id="input" type="text" placeholder="Enter Todo">
+            <button id="add" type="button"> Add </button>
         </div>
         <div id="todos">
-            <ul>
-                <li class="todo">
-                    <input type="checkbox" class="check">
-                    <p class="todo-text"> Finish CS 429 Assignment </p>
-                    <a href=""> delete </a>
-                </li>
-                <li class="todo">
-                    <input type="checkbox" class="check">
-                    <p class="todo-text"> Finish CS 429 Assignment </p>
-                    <a href=""> delete </a>
-                </li>
-                <li class="todo">
-                    <input type="checkbox" class="check">
-                    <p class="todo-text"> Finish CS 429 Assignment </p>
-                    <a href=""> delete </a>
-                </li>
-            </ul>
+
         </div>
     </div>
+    <script src="todo.js"></script>
 </body>
 </html>
