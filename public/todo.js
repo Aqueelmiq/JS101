@@ -34,6 +34,7 @@ function addTodo(todo) {
     todotext.textContent = todo.todo;
     todotext.className = "todo-text";
     const del = document.createElement('a');
+    del.className = "btn btn-danger text-white";
     del.addEventListener('click',delTodo);
     del.textContent = "delete";
     li.appendChild(checkbox);
