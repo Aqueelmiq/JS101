@@ -1,14 +1,8 @@
 var todos = [];
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        todos = JSON.parse(this.responseText).todos;
-        hello();
-    }
-};
-const url = "localhost:3000/api/todos";
-xmlhttp.open("GET", url, true)
-xmlhttp.send();
+$.getJSON("/api/todo",function(data){
+    todos = data.todos;
+    hello();
+});
 
 var curr_index = 3;
 const myTodos = document.getElementById('todos');
@@ -32,23 +26,14 @@ addbtn.addEventListener('click', function () {
 
 function addTodo(todo) {
     const li = document.createElement('li');
-    li.index = todo.index;
+    li.index = todo.index
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.className = "check";
-    checkbox.addEventListener('change', function (event) {
-        const text = event.target.nextSibling;
-        if (event.target.checked) {
-            text.style.textDecoration = 'line-through';
-        } else {
-            text.style.textDecoration = 'none';
-        }
-    });
     const todotext = document.createElement('p');
     todotext.textContent = todo.todo;
     todotext.className = "todo-text";
     const del = document.createElement('a');
-    del.className = 'btn btn-danger text-white';
     del.addEventListener('click',delTodo);
     del.textContent = "delete";
     li.appendChild(checkbox);
@@ -72,4 +57,3 @@ function delTodo(event) {
     console.log(todos);
     myTodos.removeChild(par);
 }
-
